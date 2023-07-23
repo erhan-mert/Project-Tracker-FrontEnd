@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">{{project.name | titlecase}}
+      <span class="badge rounded-pill bg-danger float-end">Remaining Task: {{incompletedTaskCount}}</span>
+    </h4>
+    <p>{{project.description}}</p>
+    <p>{{project.startDate | date:'dd MMMM yyyy' }}</p>
+    <p>{{project.completedPercent |  percent }}</p>
+    <app-task-list [tasksOfProject]="project.tasks"></app-task-list>
+  </div>
+</div>

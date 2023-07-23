@@ -1,0 +1,16 @@
+<div class="container" *ngIf="projects; else notFound ">
+  <div class="row">
+    <div class="col-12">
+      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchKey">
+    </div>
+    <div class="row" *ngFor="let project of projects | search: searchKey ">
+      <div class="col-12 m-2">
+        <app-project [currentProject]="project"></app-project>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #notFound>
+  <div class="alert-danger alert">Internal System Error </div>
+</ng-template>
+

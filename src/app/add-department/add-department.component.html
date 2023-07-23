@@ -1,0 +1,12 @@
+
+<h3>New Department</h3>
+<form #newDepartment="ngForm" (ngSubmit)="submitForm(newDepartment)">
+  <label for="name">Department name</label>
+  <input id="name" #depName="ngModel" type="text" [(ngModel)]="department.name" class="form-control" required
+         minlength="3" name="name">
+  <span class="alert alert-danger form-control"
+        *ngIf="depName.getError('required') && depName.invalid && depName.dirty">Department name can not be null</span>
+  <span class="alert alert-danger form-control"
+        *ngIf="depName.getError('minlength') && depName.invalid && depName.dirty">Department name length can be min 3 </span>
+  <button class="btn btn-success">Add Department</button>
+</form>
